@@ -32,6 +32,11 @@ pipeline {
 	    }
 	}
         // TODO: ADD AN APPROVAL STAGE
+        stage('approval'){
+           timeout(time:60 , unit: 'MINUTES'){
+               input message: "Move to stage 3?"
+           }
+        }
 
         stage('stage 3') {
             steps {
